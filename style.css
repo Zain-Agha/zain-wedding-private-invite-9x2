@@ -488,24 +488,26 @@ body.curtains-open .scroller { transform: scale(1); filter: brightness(1); }
     .text-huge { font-size: 3.5rem; }
 }
 /* ==========================================================================
-   9. UX SCROLL DOWN INDICATOR
+  /* ==========================================================================
+   9. UX SCROLL DOWN INDICATOR (FLEXBOX CENTERING)
    ========================================================================== */
-.scroll-indicator {
+/* The Wrapper handles the absolute positioning and centers via Flexbox */
+.scroll-indicator-wrapper {
     position: absolute;
     bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Centers horizontally on any screen size */
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* The Indicator handles the content layout and chevrons */
+.scroll-indicator {
     display: flex;
     flex-direction: column;
     align-items: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 1.5s ease 1s; /* Delays fade-in slightly so text loads first */
-}
-
-/* Fades in automatically once curtains are open and section becomes active */
-#section-opening.active .scroll-indicator {
-    opacity: 0.6; /* Keeps it subtle and non-intrusive */
 }
 
 .arrow-text {
