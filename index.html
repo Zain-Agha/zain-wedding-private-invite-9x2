@@ -27,6 +27,15 @@
         </svg>
     </div>
 
+    <!-- Floating Vertical Pagination Dots -->
+    <nav id="dot-navigation">
+        <div class="nav-dot active" onclick="scrollToSection('section-opening')"></div>
+        <div class="nav-dot" onclick="scrollToSection('section-names')"></div>
+        <div class="nav-dot" onclick="scrollToSection('section-events')"></div>
+        <div class="nav-dot" onclick="scrollToSection('section-rsvp')"></div>
+        <div class="nav-dot" onclick="scrollToSection('section-closing')"></div>
+    </nav>
+
     <!-- 1. The Luxury Gatefold Silk Curtains & Monogram Seal -->
     <div id="curtain-container">
         <!-- Left Drape -->
@@ -79,6 +88,11 @@
             </div>
             <div class="reveal delay-4">
                 <p class="italic-body mt-2">With profound gratitude to Allah, we invite you to share our joy as we unite in the sacred bond of marriage.</p>
+            </div>
+            <!-- Bouncing Scroll Down Indicator (UX Safeguard) -->
+            <div class="reveal scroll-indicator">
+                <div class="arrow-text">SCROLL TO VIEW</div>
+                <div class="chevron"></div>
             </div>
         </section>
 

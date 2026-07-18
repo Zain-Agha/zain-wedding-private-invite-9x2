@@ -99,3 +99,42 @@ document.addEventListener("DOMContentLoaded", () => {
         particleContainer.appendChild(particle);
     }
 });
+
+// ==========================================
+// 3. VERTICAL DOT NAVIGATION LOGIC
+// ==========================================
+function scrollToSection(id) {
+    const target = document.getElementById(id);
+    if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+    }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    const scroller = document.getElementById('main-scroll');
+    const sections = document.querySelectorAll('.scroll-section');
+    const dots = document.querySelectorAll('.nav-dot');
+
+    if (scroller) {
+        scroller.addEventListener('scroll', () => {
+            let current = '';
+            
+            // Loop through sections to find which one is currently in view
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                // Detects active section when it is past 1/3 of the screen height
+                if (scroller.scrollTop >= (sectionTop - window.innerHeight / 3)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            // Map the active section ID to the dot navigation click actions
+            dots.forEach(dot => {
+                dot.classList.remove('active');
+                if (dot.getAttribute('onclick').includes(current)) {
+                    dot.classList.add('active');
+                }
+            });
+        });
+    }
+});
